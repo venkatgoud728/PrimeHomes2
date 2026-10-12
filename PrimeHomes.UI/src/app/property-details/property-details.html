@@ -1,0 +1,269 @@
+<div class="container mt-5 mb-5" *ngIf="property">
+
+  <div class="property-details-layout">
+
+    <!-- ========================================= -->
+    <!-- LEFT SIDE - IMAGES + GALLERY -->
+    <!-- ========================================= -->
+
+    <div class="property-images-section">
+
+      <!-- Main Property Image -->
+      <div class="property-image-wrapper">
+
+        <img
+          [src]="selectedImageUrl || property.imageUrl || 'https://via.placeholder.com/800x500?text=Prime+Homes'"
+          class="property-main-image"
+          alt="Property Image"
+        >
+
+      </div>
+
+
+      <!-- Property Gallery -->
+      <div
+        class="property-gallery mt-4"
+        *ngIf="galleryImages.length > 0"
+      >
+
+        <h4 class="mb-3">
+          Property Gallery
+        </h4>
+
+
+        <div class="row g-3">
+
+          <div
+            class="col-6 col-md-4"
+            *ngFor="let image of galleryImages"
+          >
+
+            <div class="gallery-card">
+
+              <!-- Gallery Image -->
+              <img
+                [src]="image.imageUrl"
+                alt="Property Gallery Image"
+                class="gallery-image"
+                (click)="selectGalleryImage(image.imageUrl)"
+              >
+
+
+              <!-- Delete Image - Actual Owner Only -->
+              <button
+                *ngIf="userRole === 'Owner' && isPropertyOwner()"
+                type="button"
+                class="btn btn-danger btn-sm gallery-delete-btn"
+                (click)="deleteGalleryImage(image)"
+              >
+                🗑️ Delete
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- ========================================= -->
+    <!-- RIGHT SIDE - PROPERTY INFORMATION -->
+    <!-- ========================================= -->
+
+    <div class="property-info-section">
+
+      <div class="property-info-card">
+
+        <!-- Status + Property Type -->
+        <div class="d-flex justify-content-between align-items-center mb-3">
+
+          <span class="badge bg-success">
+            {{ property.status }}
+          </span>
+
+          <span class="text-muted">
+            {{ property.propertyType }}
+          </span>
+
+        </div>
+
+
+        <!-- Property Title -->
+        <h2 class="property-title">
+          {{ property.title }}
+        </h2>
+
+
+        <!-- Location -->
+        <p class="property-location">
+          📍 {{ property.location }}, {{ property.city }}
+        </p>
+
+
+        <!-- Price -->
+        <h3 class="property-price">
+          ₹{{ property.price | number }}
+        </h3>
+
+
+        <hr>
+
+
+        <!-- ===================================== -->
+        <!-- PROPERTY FEATURES -->
+        <!-- ===================================== -->
+
+        <div class="row text-center property-features">
+
+          <!-- BHK -->
+          <div class="col-4">
+
+            <div class="feature-box">
+
+              <h5>🛏</h5>
+
+              <strong>
+                {{ property.bhk }} BHK
+              </strong>
+
+              <small>
+                Bedrooms
+              </small>
+
+            </div>
+
+          </div>
+
+
+          <!-- AREA -->
+          <div class="col-4">
+
+            <div class="feature-box">
+
+              <h5>📐</h5>
+
+              <strong>
+                {{ property.area }}
+              </strong>
+
+              <small>
+                Sq.ft Area
+              </small>
+
+            </div>
+
+          </div>
+
+
+          <!-- PROPERTY TYPE -->
+          <div class="col-4">
+
+            <div class="feature-box">
+
+              <h5>🏠</h5>
+
+              <strong>
+                {{ property.propertyType }}
+              </strong>
+
+              <small>
+                Property Type
+              </small>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <hr>
+
+
+        <!-- ===================================== -->
+        <!-- DESCRIPTION -->
+        <!-- ===================================== -->
+
+        <h5 class="section-title">
+          About This Property
+        </h5>
+
+        <p class="description">
+          {{ property.description }}
+        </p>
+
+
+        <!-- ===================================== -->
+        <!-- BUYER INQUIRY -->
+        <!-- ===================================== -->
+
+        <div
+          *ngIf="isLoggedIn && userRole === 'Buyer'"
+          class="inquiry-section"
+        >
+
+          <h5 class="section-title">
+            Interested in this property?
+          </h5>
+
+          <p class="text-muted">
+            Send a message to the property owner.
+          </p>
+
+
+          <textarea
+            class="form-control mb-3"
+            rows="4"
+            placeholder="Enter your message..."
+            [(ngModel)]="inquiryMessage"
+          ></textarea>
+
+
+          <button
+            class="btn btn-primary w-100"
+            (click)="sendInquiry()"
+          >
+            Send Inquiry to Owner
+          </button>
+
+        </div>
+
+
+        <!-- ===================================== -->
+        <!-- NON-BUYER MESSAGE -->
+        <!-- ===================================== -->
+
+        <div
+          *ngIf="!isLoggedIn || userRole !== 'Buyer'"
+          class="alert alert-info mt-4"
+        >
+          Login as a Buyer to send an inquiry to the property owner.
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ========================================= -->
+<!-- LOADING / NOT FOUND -->
+<!-- ========================================= -->
+
+<div
+  class="container mt-5"
+  *ngIf="!property"
+>
+
+  <div class="alert alert-warning">
+    Loading property details...
+  </div>
+
+</div>

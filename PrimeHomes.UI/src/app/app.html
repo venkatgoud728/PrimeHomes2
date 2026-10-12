@@ -1,0 +1,304 @@
+<nav class="navbar navbar-expand-lg navbar-dark primehomes-navbar">
+
+  <div class="container">
+
+
+    <!-- ============================= -->
+    <!-- Prime Homes Logo -->
+    <!-- ============================= -->
+
+    <a
+      class="navbar-brand primehomes-logo"
+      routerLink="/">
+
+      <img
+        src="/images/primehomes-logo.png"
+        alt="Prime Homes">
+
+    </a>
+
+
+    <!-- ============================= -->
+    <!-- Mobile Menu Button -->
+    <!-- ============================= -->
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      (click)="toggleMenu()">
+
+      <span class="navbar-toggler-icon"></span>
+
+    </button>
+
+
+    <!-- ============================= -->
+    <!-- Navigation -->
+    <!-- ============================= -->
+
+    <div
+      class="navbar-collapse"
+      [class.show]="menuOpen"
+      id="mainNavbar">
+
+
+      <div class="navbar-nav ms-auto">
+
+
+        <!-- ============================= -->
+        <!-- Home -->
+        <!-- ============================= -->
+
+        <a
+          class="nav-link"
+          routerLink="/"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }">
+
+          Home
+
+        </a>
+
+
+        <!-- ============================= -->
+        <!-- Properties -->
+        <!-- Logged-in users -->
+        <!-- ============================= -->
+
+        <ng-container *ngIf="isLoggedIn()">
+
+          <a
+            class="nav-link"
+            routerLink="/properties"
+            routerLinkActive="active">
+
+            Properties
+
+          </a>
+
+        </ng-container>
+
+
+        <!-- ============================= -->
+        <!-- Login / Register -->
+        <!-- Logged-out users -->
+        <!-- ============================= -->
+
+        <ng-container *ngIf="!isLoggedIn()">
+
+          <a
+            class="nav-link"
+            routerLink="/login"
+            routerLinkActive="active">
+
+            Login
+
+          </a>
+
+
+          <a
+            class="nav-link"
+            routerLink="/register"
+            routerLinkActive="active">
+
+            Register
+
+          </a>
+
+        </ng-container>
+
+
+        <!-- ============================= -->
+        <!-- Buyer Navigation -->
+        <!-- ============================= -->
+
+        <ng-container
+          *ngIf="isLoggedIn() && getUserRole() === 'Buyer'">
+
+
+          <a
+            class="nav-link"
+            routerLink="/buyer-dashboard"
+            routerLinkActive="active">
+
+            Dashboard
+
+          </a>
+
+
+          <a
+            class="nav-link"
+            routerLink="/my-favorites"
+            routerLinkActive="active">
+
+            ❤️ My Favorites
+
+          </a>
+
+
+          <a
+            class="nav-link"
+            routerLink="/compare-properties"
+            routerLinkActive="active">
+
+            ⚖ Compare
+
+          </a>
+
+
+          <a
+            class="nav-link"
+            routerLink="/my-inquiries"
+            routerLinkActive="active">
+
+            My Inquiries
+
+          </a>
+
+        </ng-container>
+
+
+        <!-- ============================= -->
+        <!-- Owner Navigation -->
+        <!-- ============================= -->
+
+        <ng-container
+          *ngIf="isLoggedIn() && getUserRole() === 'Owner'">
+
+
+          <a
+            class="nav-link"
+            routerLink="/owner-dashboard"
+            routerLinkActive="active">
+
+            Dashboard
+
+          </a>
+
+
+          <a
+            class="nav-link"
+            routerLink="/my-properties"
+            routerLinkActive="active">
+
+            My Properties
+
+          </a>
+
+
+          <a
+            class="nav-link"
+            routerLink="/owner-inquiries"
+            routerLinkActive="active">
+
+            My Inquiries
+
+          </a>
+
+        </ng-container>
+
+
+        <!-- ============================= -->
+        <!-- Admin Navigation -->
+        <!-- ============================= -->
+
+        <ng-container
+          *ngIf="isLoggedIn() && getUserRole() === 'Admin'">
+
+
+          <a
+            class="nav-link"
+            routerLink="/admin-dashboard"
+            routerLinkActive="active">
+
+            Admin Dashboard
+
+          </a>
+
+        </ng-container>
+
+
+        <!-- ======================================== -->
+        <!-- Notifications + Profile + Logout -->
+        <!-- Logged-in users -->
+        <!-- ======================================== -->
+
+        <ng-container *ngIf="isLoggedIn()">
+
+
+          <!-- ============================= -->
+          <!-- Notification Bell -->
+          <!-- ============================= -->
+
+          <a
+            class="nav-link notification-nav-link"
+            routerLink="/notifications"
+            routerLinkActive="active"
+            title="Notifications">
+
+
+            <span class="notification-bell">
+
+              🔔
+
+
+              <!-- Unread Count -->
+
+              <span
+                *ngIf="unreadNotificationCount > 0"
+                class="notification-badge">
+
+                {{ unreadNotificationCount }}
+
+              </span>
+
+            </span>
+
+          </a>
+
+
+          <!-- ============================= -->
+          <!-- Profile -->
+          <!-- ============================= -->
+
+          <a
+            class="nav-link"
+            routerLink="/profile"
+            routerLinkActive="active">
+
+            👤 Profile
+
+          </a>
+
+
+          <!-- ============================= -->
+          <!-- Logout -->
+          <!-- ============================= -->
+
+          <button
+            class="btn btn-outline-light btn-sm ms-2"
+            type="button"
+            (click)="logout()">
+
+            Logout
+
+          </button>
+
+
+        </ng-container>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+</nav>
+
+
+<!-- ============================= -->
+<!-- Page Content -->
+<!-- ============================= -->
+
+<router-outlet></router-outlet>

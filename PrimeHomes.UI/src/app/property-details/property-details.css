@@ -1,0 +1,673 @@
+/* =========================================================
+   PRIMEHOMES PROPERTY DETAILS
+   Luxury Navy + Gold Theme
+   ========================================================= */
+
+
+/* =========================================================
+   MAIN PROPERTY IMAGE
+   ========================================================= */
+
+.property-image-wrapper {
+  overflow: hidden;
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.20);
+}
+
+
+.property-main-image {
+  width: 100%;
+
+  height: 500px;
+
+  object-fit: cover;
+
+  display: block;
+
+  transition:
+    transform 0.4s ease;
+}
+
+
+.property-image-wrapper:hover .property-main-image {
+  transform: scale(1.03);
+}
+
+
+/* =========================================================
+   PROPERTY INFORMATION CARD
+   ========================================================= */
+
+.property-info-card {
+  width: 100%;
+
+  height: 100%;
+
+  box-sizing: border-box;
+
+  background:
+    linear-gradient(
+      145deg,
+      #0b1326,
+      #101b32
+    );
+
+  color: #ffffff;
+
+  border: 1px solid
+    rgba(212, 175, 90, 0.28);
+
+  border-radius: 18px;
+
+  padding: 30px;
+
+  box-shadow:
+    0 12px 35px
+    rgba(0, 0, 0, 0.30);
+}
+
+
+/* =========================================================
+   PROPERTY TITLE
+   ========================================================= */
+
+.property-title {
+  font-weight: 700;
+
+  color: #ffffff !important;
+
+  margin-bottom: 10px;
+
+  line-height: 1.25;
+}
+
+
+/* =========================================================
+   PROPERTY LOCATION
+   ========================================================= */
+
+.property-location {
+  color: #c7ccd6 !important;
+
+  margin-bottom: 20px;
+
+  font-size: 15px;
+}
+
+
+/* =========================================================
+   PROPERTY PRICE
+   ========================================================= */
+
+.property-price {
+  color: #e6c978 !important;
+
+  font-weight: 700;
+
+  margin-bottom: 20px;
+
+  font-size: 28px;
+}
+
+
+/* =========================================================
+   PROPERTY TYPE AT TOP
+   ========================================================= */
+
+.property-info-card > .d-flex .text-muted {
+  color: #c7ccd6 !important;
+
+  font-size: 14px;
+
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   PROPERTY FEATURES
+   ========================================================= */
+
+.property-features {
+  margin: 20px 0;
+}
+
+
+/* =========================================================
+   FEATURE BOX
+   ========================================================= */
+
+.feature-box {
+  background:
+    rgba(255, 255, 255, 0.055);
+
+  border:
+    1px solid rgba(212, 175, 90, 0.20);
+
+  border-radius: 12px;
+
+  padding: 15px 8px;
+
+  min-height: 115px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+
+/* =========================================================
+   FEATURE BOX HOVER
+   ========================================================= */
+
+.feature-box:hover {
+  transform: translateY(-2px);
+
+  background:
+    rgba(212, 175, 90, 0.08);
+
+  border-color:
+    rgba(212, 175, 90, 0.55);
+
+  box-shadow:
+    0 6px 18px
+    rgba(0, 0, 0, 0.20);
+}
+
+
+/* =========================================================
+   FEATURE ICON
+   ========================================================= */
+
+.feature-box h5 {
+  font-size: 24px;
+
+  margin: 0 0 8px;
+
+  line-height: 1;
+
+  color: #e6c978 !important;
+}
+
+
+/* =========================================================
+   FEATURE MAIN VALUE
+   ========================================================= */
+
+.feature-box strong {
+  display: block;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  color: #ffffff !important;
+
+  line-height: 1.4;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   FEATURE LABEL
+   ========================================================= */
+
+.feature-box small {
+  display: block;
+
+  color: #bfc5d0 !important;
+
+  font-size: 13px;
+
+  font-weight: 500;
+
+  margin-top: 5px;
+
+  line-height: 1.4;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   SECTION TITLES
+   ========================================================= */
+
+.section-title {
+  font-weight: 600;
+
+  color: #e6c978 !important;
+
+  margin-bottom: 12px;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.description {
+  color: #c7ccd6 !important;
+
+  line-height: 1.7;
+
+  margin-bottom: 15px;
+}
+
+
+/* =========================================================
+   INQUIRY SECTION
+   ========================================================= */
+
+.inquiry-section {
+  margin-top: 25px;
+
+  padding-top: 10px;
+}
+
+
+/* =========================================================
+   INQUIRY DESCRIPTION
+   ========================================================= */
+
+.inquiry-section > p.text-muted {
+  color: #aeb6c4 !important;
+}
+
+
+/* =========================================================
+   FORM CONTROL
+   ========================================================= */
+
+.form-control {
+  border-radius: 8px;
+}
+
+
+/* =========================================================
+   INQUIRY TEXTAREA
+   ========================================================= */
+
+.inquiry-section .form-control {
+  background: #080f20;
+
+  color: #ffffff;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.15);
+
+  border-radius: 8px;
+
+  resize: vertical;
+}
+
+
+.inquiry-section .form-control::placeholder {
+  color: #9ca3af;
+
+  opacity: 1;
+}
+
+
+.inquiry-section .form-control:focus {
+  background: #080f20;
+
+  color: #ffffff;
+
+  border-color: #d4af5a;
+
+  box-shadow:
+    0 0 0 0.2rem
+    rgba(212, 175, 90, 0.15);
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.btn {
+  border-radius: 8px;
+
+  padding: 11px;
+
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   INQUIRY BUTTON
+   ========================================================= */
+
+.inquiry-section .btn-primary {
+  background:
+    linear-gradient(
+      135deg,
+      #d4af5a,
+      #a77b2e
+    ) !important;
+
+  border-color:
+    #d4af5a !important;
+
+  color: #111827 !important;
+
+  font-weight: 600;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.inquiry-section .btn-primary:hover {
+  transform: translateY(-1px);
+
+  background:
+    linear-gradient(
+      135deg,
+      #e6c978,
+      #d4af5a
+    ) !important;
+
+  border-color:
+    #e6c978 !important;
+
+  color: #111827 !important;
+
+  box-shadow:
+    0 5px 15px
+    rgba(212, 175, 90, 0.25);
+}
+
+
+/* =========================================================
+   STATUS BADGE
+   ========================================================= */
+
+.property-info-card .badge {
+  border-radius: 20px;
+
+  padding: 8px 12px;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   PROPERTY TYPE
+   ========================================================= */
+
+.property-info-card .text-muted {
+  color: #c7ccd6 !important;
+}
+
+
+/* =========================================================
+   PROPERTY GALLERY
+   ========================================================= */
+
+.property-gallery {
+  margin-top: 25px;
+}
+
+
+.property-gallery h4 {
+  font-weight: 600;
+
+  margin-bottom: 15px;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   GALLERY CARD
+   ========================================================= */
+
+.gallery-card {
+  position: relative;
+
+  width: 100%;
+
+  height: 160px;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  border: 1px solid #ddd;
+
+  background: #f8f9fa;
+}
+
+
+/* =========================================================
+   GALLERY IMAGE
+   ========================================================= */
+
+.gallery-image {
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease;
+}
+
+
+.gallery-image:hover {
+  transform: scale(1.05);
+}
+
+
+/* =========================================================
+   GALLERY DELETE BUTTON
+   ========================================================= */
+
+.gallery-delete-btn {
+  position: absolute;
+
+  bottom: 8px;
+
+  right: 8px;
+
+  z-index: 10;
+}
+
+
+/* =========================================================
+   TWO-COLUMN PROPERTY DETAILS LAYOUT
+   ========================================================= */
+
+.property-details-layout {
+  display: grid;
+
+  grid-template-columns: 2fr 1fr;
+
+  gap: 30px;
+
+  align-items: start;
+}
+
+
+/* =========================================================
+   LEFT SIDE - PROPERTY IMAGES
+   ========================================================= */
+
+.property-images-section {
+  width: 100%;
+}
+
+
+/* =========================================================
+   RIGHT SIDE - PROPERTY INFORMATION
+   ========================================================= */
+
+.property-info-section {
+  width: 100%;
+}
+
+
+/* =========================================================
+   HORIZONTAL RULE
+   ========================================================= */
+
+.property-info-card hr {
+  border: 0;
+
+  border-top:
+    1px solid rgba(255, 255, 255, 0.12);
+
+  margin:
+    22px 0;
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLET
+   ========================================================= */
+
+@media (max-width: 991px) {
+
+  .property-details-layout {
+    grid-template-columns: 1fr;
+
+    gap: 25px;
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .property-main-image {
+    height: 300px;
+  }
+
+
+  .property-info-card {
+    padding: 20px;
+  }
+
+
+  .property-title {
+    font-size: 24px;
+  }
+
+
+  .property-price {
+    font-size: 24px;
+  }
+
+
+  .feature-box {
+    min-height: 105px;
+
+    padding: 12px 5px;
+  }
+
+
+  .feature-box h5 {
+    font-size: 21px;
+  }
+
+
+  .feature-box strong {
+    font-size: 14px;
+  }
+
+
+  .feature-box small {
+    font-size: 12px;
+  }
+
+
+  .gallery-card {
+    height: 140px;
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 576px) {
+
+  .property-main-image {
+    height: 250px;
+  }
+
+
+  .property-info-card {
+    padding: 16px;
+  }
+
+
+  .property-title {
+    font-size: 22px;
+  }
+
+
+  .property-location {
+    font-size: 14px;
+  }
+
+
+  .property-price {
+    font-size: 22px;
+  }
+
+
+  .feature-box {
+    min-height: 100px;
+  }
+
+
+  .feature-box h5 {
+    font-size: 19px;
+  }
+
+
+  .feature-box strong {
+    font-size: 13px;
+  }
+
+
+  .feature-box small {
+    font-size: 11px;
+  }
+
+
+  .gallery-card {
+    height: 120px;
+  }
+
+}

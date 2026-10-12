@@ -1,0 +1,212 @@
+<div class="container mt-5 mb-5">
+
+  <!-- Header -->
+  <div class="mb-4">
+    <h2>Admin Dashboard</h2>
+    <p class="text-muted">
+      Review and manage all property listings.
+    </p>
+  </div>
+
+  <!-- No Properties -->
+  <div
+    *ngIf="properties.length === 0"
+    class="text-center text-muted mt-5">
+
+    <h5>No properties found.</h5>
+
+  </div>
+
+  <!-- Properties Table -->
+  <div
+    class="table-responsive"
+    *ngIf="properties.length > 0">
+
+    <table class="table table-bordered table-hover align-middle">
+
+      <thead class="table-dark">
+
+        <tr>
+
+          <th>Property ID</th>
+
+          <th>Title</th>
+
+          <th>Type</th>
+
+          <th>Price</th>
+
+          <th>City</th>
+
+          <th>Owner ID</th>
+
+          <th>Status</th>
+
+          <th>Badge</th>
+
+          <th>Action</th>
+
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr *ngFor="let property of properties">
+
+          <!-- Property ID -->
+          <td>
+            {{ property.propertyId }}
+          </td>
+
+          <!-- Title -->
+          <td>
+            <strong>
+              {{ property.title }}
+            </strong>
+          </td>
+
+          <!-- Type -->
+          <td>
+            {{ property.propertyType }}
+          </td>
+
+          <!-- Price -->
+          <td>
+            ₹{{ property.price | number }}
+          </td>
+
+          <!-- City -->
+          <td>
+            {{ property.city }}
+          </td>
+
+          <!-- Owner -->
+          <td>
+            {{ property.ownerId }}
+          </td>
+
+          <!-- Status -->
+          <td>
+
+            <span
+              class="badge"
+              [ngClass]="{
+                'bg-warning text-dark': property.status === 'Pending',
+                'bg-success': property.status === 'Approved',
+                'bg-danger': property.status === 'Rejected'
+              }">
+
+              {{ property.status }}
+
+            </span>
+
+          </td>
+
+          <!-- Badge Management -->
+          <td>
+
+            <div class="badge-management">
+
+              <!-- Current Badge -->
+              <div class="mb-2">
+
+                <span
+                  *ngIf="property.badge"
+                  class="badge property-admin-badge">
+
+                  {{ property.badge }}
+
+                </span>
+
+                <span
+                  *ngIf="!property.badge"
+                  class="text-muted small">
+
+                  No Badge
+
+                </span>
+
+              </div>
+
+              <!-- Badge Dropdown -->
+              <select
+                class="form-select form-select-sm"
+                [value]="property.badge || ''"
+                (change)="
+                  updateBadge(
+                    property,
+                    $any($event.target).value || null
+                  )
+                ">
+
+                <option value="">
+                  No Badge
+                </option>
+
+                <option value="NEW">
+                  NEW
+                </option>
+
+                <option value="FEATURED">
+                  FEATURED
+                </option>
+
+                <option value="HOT PROPERTY">
+                  HOT PROPERTY
+                </option>
+
+                <option value="PRICE DROP">
+                  PRICE DROP
+                </option>
+
+                <option value="PREMIUM">
+                  PREMIUM
+                </option>
+
+                <option value="VERIFIED">
+                  VERIFIED
+                </option>
+
+              </select>
+
+            </div>
+
+          </td>
+
+          <!-- Actions -->
+          <td>
+
+            <div class="d-flex gap-2 flex-wrap">
+
+              <button
+                class="btn btn-sm btn-success"
+                (click)="approveProperty(property)"
+                [disabled]="property.status === 'Approved'">
+
+                Approve
+
+              </button>
+
+              <button
+                class="btn btn-sm btn-danger"
+                (click)="rejectProperty(property)"
+                [disabled]="property.status === 'Rejected'">
+
+                Reject
+
+              </button>
+
+            </div>
+
+          </td>
+
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>

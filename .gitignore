@@ -1,0 +1,39 @@
+# Dependencies
+/PrimeHomes.UI/node_modules/
+
+# Angular build output and cache
+/PrimeHomes.UI/dist/
+/PrimeHomes.UI/coverage/
+/PrimeHomes.UI/.angular/
+
+# .NET build output
+**/bin/
+**/obj/
+**/TestResults/
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Runtime-generated user uploads
+/PrimeHomes.API/PrimeHomes.API/wwwroot/uploads/
+
+# Local environment and secret files
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
